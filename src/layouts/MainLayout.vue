@@ -1,5 +1,9 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh lpR fFf">
+    <q-header elevated class="bg-brown-6">
+      <HeaderToolbar />
+    </q-header>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -7,9 +11,10 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import HeaderToolbar from "components/HeaderToolbar/HeaderToolbar";
 
-export default defineComponent({
+export default {
   name: 'MainLayout',
-})
+  components: { HeaderToolbar }
+}
 </script>
