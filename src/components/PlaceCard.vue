@@ -5,7 +5,7 @@
   >
     <q-img
       :ratio="16/9" alt="place"
-      :src="place.type === 'Bookcase' ? 'images/bookcase.jpg' : 'images/box.jpg'"
+      :src="place.type === 'bookcase' ? 'images/bookcase.jpg' : 'images/box.jpg'"
     />
     <transition
       appear enter-active-class="animated fadeIn"
@@ -23,8 +23,8 @@
     <q-card-section>
       <div class="text-h6 text-capitalize">{{ place.type }}</div>
       <div class="text-subtitle2">
-        {{ place.type === 'Bookcase' ? `${place.shelvesCount} shelves, ` : '' }}
-        {{ place.booksCount }} book{{ place.booksCount > 1 ? 's' : '' }}
+        {{ place.type === 'bookcase' ? `${place.shelves_count} shelves, ` : '' }}
+        {{ place.books_count }} book{{ place.books_count > 1 ? 's' : '' }}
       </div>
     </q-card-section>
 
