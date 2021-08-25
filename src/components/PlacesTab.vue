@@ -80,12 +80,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.place-card {
-  &:hover {
-    box-shadow: 1px 4px 10px #333333;
-    -webkit-transition:  box-shadow .1s ease-in;
-  }
-}
-</style>

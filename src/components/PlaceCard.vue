@@ -1,6 +1,6 @@
 <template>
   <q-card
-    class="place-card cursor-pointer relative-position"
+    class="place-card cursor-pointer relative-position bg-brown-1"
     @mouseenter="hover = true" @mouseleave="hover = false"
   >
     <q-img
@@ -49,3 +49,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.place-card {
+  &:hover {
+    box-shadow: 1px 4px 10px #333333;
+    -webkit-transition:  box-shadow .1s ease-in;
+  }
+}
+</style>
+
