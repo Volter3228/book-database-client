@@ -1,6 +1,6 @@
 <template>
   <q-card
-    class="book-card cursor-pointer relative-position bg-brown-1"
+    class="book-card cursor-pointer relative-position bg-brown-1 card-shadow"
     @mouseenter="hover = true" @mouseleave="hover = false"
   >
     <transition
@@ -49,12 +49,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.book-card {
-  &:hover {
-    box-shadow: 1px 4px 10px #333333;
-    -webkit-transition:  box-shadow .1s ease-in;
-  }
-}
-</style>

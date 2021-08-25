@@ -4,3 +4,10 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+.card-shadow {
+  &:hover {
+    box-shadow: 1px 4px 10px #333333;
+    -webkit-transition: box-shadow .1s ease-in;
+  }
+}
