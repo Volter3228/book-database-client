@@ -1,1 +1,6 @@
 // app global css in SCSS form
+.text-cut {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
