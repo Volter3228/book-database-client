@@ -11,3 +11,7 @@
     -webkit-transition: box-shadow .1s ease-in;
   }
 }
+
+.q-page, .q-layout {
+  min-height: 767px !important;
+}
