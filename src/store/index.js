@@ -1,10 +1,12 @@
 import {createStore} from 'vuex';
 import place from './place';
+import book from './book';
 
 export default function () {
   return createStore({
     modules: {
-      place
+      place,
+      book,
     },
 
     // enable strict mode (adds overhead!)
