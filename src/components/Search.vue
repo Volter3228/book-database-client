@@ -2,12 +2,12 @@
   <q-btn-dropdown color="" label="Filter" dropdown-icon="category" class="q-mr-sm">
     <q-list class="bg-brown-1 ">
       <q-item
-        v-for="filter in ['All', 'By Title', 'By Author', 'By Topic']" :key="filter"
+        v-for="filter in filters" :key="filter"
         clickable v-close-popup @click="onFilterChange(filter)"
       >
         <q-item-section>
           <q-item-label :class="currentFilter === filter && 'text-bold'">
-            {{ filter }}
+            By <span class="text-capitalize">{{ filter }}</span>
           </q-item-label>
         </q-item-section>
       </q-item>
@@ -36,15 +36,17 @@ export default {
     const searchString = ref('');
     const currentFilter = ref('All');
 
+    const filters = ['everything', 'title', 'author', 'topic'];
+
     const onFilterChange = (filter) => {
       if (currentFilter.value === filter) return;
 
       currentFilter.value = filter;
       switch(filter) {
-        case 'All': break;
-        case 'By Title': break;
-        case 'By Author': break;
-        case 'By Topic': break;
+        case 'everything': break;
+        case 'title': break;
+        case 'author': break;
+        case 'topic': break;
         default: break;
       }
     }
@@ -59,7 +61,8 @@ export default {
       searchString,
       currentFilter,
       onSearch,
-      onFilterChange
+      onFilterChange,
+      filters
     }
   }
 }
