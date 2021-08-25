@@ -14,7 +14,7 @@
 
       <q-tab-panels v-model="tab" animated style="background: inherit">
         <q-tab-panel name="books">
-
+          <BooksTab />
         </q-tab-panel>
         <q-tab-panel name="places">
           <PlacesTab />
@@ -27,10 +27,11 @@
 <script>
 import {ref} from 'vue';
 import PlacesTab from "components/PlacesTab";
+import BooksTab from "components/BooksTab";
 
 export default {
   name: 'MainPage',
-  components: {PlacesTab},
+  components: {PlacesTab, BooksTab},
   setup() {
     const tab = ref('books');
 
