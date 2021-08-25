@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 
 export default {
   name: 'Search',

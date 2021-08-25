@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import HeaderToolbar from "components/HeaderToolbar/HeaderToolbar";
+import HeaderToolbar from "components/HeaderToolbar";
 
 export default {
   name: 'MainLayout',
