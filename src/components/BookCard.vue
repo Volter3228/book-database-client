@@ -19,10 +19,10 @@
     <q-card-section class="full-width">
       <div class="text-h6">{{ book.title }}</div>
       <div class="text-subtitle2">
-        by {{ book.authors.join(', ') }}
+        by {{ book.authors.map(a => a.name).join(', ') }}
       </div>
       <div class="text-caption text-italic">
-        {{ book.topics.join(', ') }}
+        {{ book.topics.map(a => a.name).join(', ') }}
       </div>
     </q-card-section>
 

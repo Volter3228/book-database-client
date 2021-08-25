@@ -12,54 +12,18 @@
 </template>
 
 <script>
-//import {ref} from 'vue';
+import {useStore} from "vuex";
+import {computed} from "vue";
 import BookCard from "components/BookCard";
 
 export default {
   name: 'BooksTab',
   components: {BookCard},
   setup() {
-    const books = [
-      {
-        id: 1,
-        title: 'Harry Potter',
-        authors: ['J. K. Rowling'],
-        topics: ['Friendship', 'Love'],
-        placeType: 'Shelf',
-        place: { number: 1, bookcase: {info: 'Lorem ipsum lallaa'} },
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu lacus. Sed finibus cursus urna, eget auctor nisl porttitor.',
-      },
-      {
-        id: 2,
-        title: 'Yes its me',
-        authors: ['Samuel L. Jackson'],
-        topics: ['Friendship', 'Fantasy'],
-        placeType: 'Shelf',
-        place: { number: 1, bookcase: {info: 'Lorem ipsum lallaa'} },
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu lacus. Sed finibus cursus urna, eget auctor nisl porttitor.',
-      },
-      {
-        id: 3,
-        title: 'Asasoas assas as',
-        authors: ['Stephen King'],
-        topics: ['Science Fiction', 'Love', 'Friendship', 'Surviving'],
-        placeType: 'Shelf',
-        place: { number: 1, bookcase: {info: 'Lorem ipsum lallaa'} },
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu lacus. Sed finibus cursus urna, eget auctor nisl porttitor.',
-      },
-      {
-        id: 4,
-        title: 'I like to move it move it',
-        authors: ['Julian Ohonovskii', 'Vouchik Morozov'],
-        topics: ['Friendship', 'Dance', 'Death'],
-        placeType: 'Shelf',
-        place: { number: 2, bookcase: {info: 'Lorem ipsum lallaa'} },
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in arcu lacus. Sed finibus cursus urna, eget auctor nisl porttitor.',
-      },
-    ];
-
+    const store = useStore();
+    store.dispatch('book/getBooks');
     return {
-      books
+      books: computed(() => store.state.book.books),
     }
   }
 }
