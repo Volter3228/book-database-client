@@ -1,6 +1,6 @@
 <template>
   <q-btn-dropdown color="" label="Filter" dropdown-icon="category" class="q-mr-sm">
-    <q-list>
+    <q-list class="bg-brown-1">
       <q-item
         v-for="filter in ['All', 'By Title', 'By Author', 'By Topic']" :key="filter"
         clickable v-close-popup @click="onFilterChange(filter)"

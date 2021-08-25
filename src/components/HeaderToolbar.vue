@@ -9,12 +9,12 @@
     <q-space/>
     <Search/>
     <q-btn flat round dense icon="book">
-      <q-tooltip anchor="bottom middle" self="top middle" :offset="[5, 3]">
+      <q-tooltip anchor="bottom middle" self="top middle" :offset="[5, 3]" class="bg-brown-9">
         <strong>Add new book</strong>
       </q-tooltip>
     </q-btn>
     <q-btn flat round dense icon="inventory_2">
-      <q-tooltip anchor="bottom middle" self="top middle" :offset="[5, 3]">
+      <q-tooltip anchor="bottom middle" self="top middle" :offset="[5, 3]" class="bg-brown-9">
         <strong>Add new place</strong>
       </q-tooltip>
     </q-btn>
