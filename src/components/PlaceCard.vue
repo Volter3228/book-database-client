@@ -21,7 +21,7 @@
       </div>
     </transition>
     <q-card-section>
-      <div class="text-h6">{{ place.type }}</div>
+      <div class="text-h6 text-capitalize">{{ place.type }}</div>
       <div class="text-subtitle2">
         {{ place.type === 'Bookcase' ? `${place.shelvesCount} shelves, ` : '' }}
         {{ place.booksCount }} book{{ place.booksCount > 1 ? 's' : '' }}

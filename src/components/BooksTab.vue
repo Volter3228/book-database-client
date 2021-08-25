@@ -3,7 +3,7 @@
     <q-scroll-area class="full-width q-px-lg" style="height: 70vh">
       <div class="row">
         <!-- todo: Implement something like Google Keep layout -->
-        <div class="col-xs-6 col-sm-4 col-md-3 q-pa-sm" v-for="book in books" :key="book.id">
+        <div class="col-xs-12 col-sm-6 col-md-3 q-pa-sm" v-for="book in books" :key="book.id">
           <BookCard :book="book"/>
         </div>
       </div>
