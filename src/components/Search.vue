@@ -34,7 +34,7 @@ export default {
   name: 'Search',
   setup() {
     const searchString = ref('');
-    const currentFilter = ref('All');
+    const currentFilter = ref('everything');
 
     const filters = ['everything', 'title', 'author', 'topic'];
 
