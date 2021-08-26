@@ -27,7 +27,7 @@
             Shelves Count:
             <q-input
               v-model.number="form.shelvesCount"
-              outlined dense min="1"
+              outlined dense min="1" color="brown-9"
               type="number" style="width: 50%"
             />
           </div>
