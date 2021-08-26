@@ -12,7 +12,6 @@ export const getBooks = async ({ commit }) => {
 export const addBook = async ({ commit }, data) => {
   try {
     const response = await api.post('/books', data);
-    console.log(response.data);
     commit('ADD_BOOK', response.data);
     Notify.create({ message: 'Book Added Successfully!', color: 'positive' });
     return response.data;

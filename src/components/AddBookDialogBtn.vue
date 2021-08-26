@@ -9,7 +9,6 @@
       <q-card-section>
         <div class="text-h6 text-brown-10">Add new book</div>
       </q-card-section>
-
       <q-form
         @submit="onSubmit" @reset="resetForm"
         class="q-gutter-md"
@@ -21,32 +20,7 @@
           </div>
           <TagsInput label="Authors" :tags="form.authors" @add="addAuthor" @remove="removeAuthor"/>
           <TagsInput label="Topics" :tags="form.topics" @add="addTopic" @remove="removeTopic"/>
-          <div>
-            Place:
-            <q-select
-              outlined v-model="place" :options="places" dense
-              class="text-capitalize" popup-content-class="text-capitalize bg-brown-1"
-              transition-show="jump-up" transition-hide="jump-up" color="brown-9"
-            >
-              <template v-slot:option="scope">
-                <q-item v-bind="scope.itemProps">
-                  <q-item-section>
-                    <q-item-label>{{ scope.opt.label }}</q-item-label>
-                  </q-item-section>
-                  <q-item-section side>
-                    <q-icon name="info" color="brown-9">
-                      <q-tooltip
-                        anchor="top middle" self="top middle" :offset="[5, 30]" class="bg-brown-9"
-                        style="max-width: 150px"
-                      >
-                        {{ scope.opt.info }}
-                      </q-tooltip>
-                    </q-icon>
-                  </q-item-section>
-                </q-item>
-              </template>
-            </q-select>
-          </div>
+          <PlacesInput :places="places" :selected="place" @input="handlePlaceInput" />
           <div v-if="isBookcase">
             Shelf number:
             <q-input
@@ -63,7 +37,6 @@
             />
           </div>
         </q-card-section>
-
         <q-card-actions align="right" class="text-primary">
           <q-btn color="brown-10" flat label="Cancel" v-close-popup/>
           <q-btn color="brown-10" flat label="Add" @click="onSubmit"/>
@@ -78,10 +51,11 @@ import {computed, reactive, ref, watchEffect, watch} from "vue";
 import {useStore} from "vuex";
 import {useQuasar} from 'quasar';
 import TagsInput from "components/TagsInput";
+import PlacesInput from "components/PlacesInput";
 
 export default {
   name: 'AddBookDialogBtn',
-  components: {TagsInput},
+  components: {TagsInput, PlacesInput},
   setup() {
     const initialForm = {
       title: '',
@@ -125,11 +99,8 @@ export default {
       return 0;
     });
 
+    const handlePlaceInput = (value) => place.value = value;
     const resetForm = () => Object.assign(form, initialForm);
-
-    watchEffect(() => !showDialog.value && resetForm());
-    watch(place, () => { form.shelfNumber = 1 });
-
     const onSubmit = () => {
       if (!form.title || !form.authors.length || !form.topics.length || !place.value)
         return $q.notify({message: 'Fill all fields!', color: 'negative'});
@@ -140,6 +111,9 @@ export default {
         {...form, placeId: storePlace.id, placeType: storePlace.type}
       ).then(() => { showDialog.value = false; });
     }
+
+    watchEffect(() => !showDialog.value && resetForm());
+    watch(place, () => { form.shelfNumber = 1 });
 
     return {
       form,
@@ -156,6 +130,7 @@ export default {
       removeAuthor: (index) => form.authors.splice(index, 1),
       addTopic: (val) => form.topics.push(val),
       removeTopic: (index) => form.topics.splice(index, 1),
+      handlePlaceInput,
       resetForm,
       onSubmit,
     }
