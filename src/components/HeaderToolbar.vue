@@ -10,7 +10,6 @@
 
     <q-space/>
 
-    <Search/>
     <AddBookDialogBtn />
     <AddPlaceDialogBtn />
 
@@ -18,12 +17,11 @@
 </template>
 
 <script>
-import Search from "components/Search";
 import AddBookDialogBtn from "components/AddBookDialogBtn";
 import AddPlaceDialogBtn from "components/AddPlaceDialogBtn";
 
 export default {
   name: 'HeaderToolbar',
-  components: {AddPlaceDialogBtn, AddBookDialogBtn, Search}
+  components: {AddPlaceDialogBtn, AddBookDialogBtn}
 }
 </script>
