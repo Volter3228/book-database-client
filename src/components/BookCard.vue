@@ -30,6 +30,10 @@
       <div>
         <strong>Description:</strong> {{ book.description }}
       </div>
+      <div>
+        <strong>Place: </strong>
+        <span class="text-capitalize">{{ book.placeType }}</span> #{{ book.place_id }}{{ book.shelf_number ? `, ${book.shelf_number} shelf` : '' }}
+      </div>
     </q-card-section>
   </q-card>
 </template>

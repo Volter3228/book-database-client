@@ -71,6 +71,7 @@ export default {
 
     const onFilterChange = (value) => {
       state.filter = value;
+      console.log(state.searchBooks);
       filterBooks();
     };
 
