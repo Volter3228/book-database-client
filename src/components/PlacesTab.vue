@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import {computed, onMounted} from 'vue';
 import { useStore } from 'vuex';
 
 import PlaceCard from "components/PlaceCard";
@@ -22,7 +22,9 @@ export default {
   components: {PlaceCard},
   setup() {
     const store = useStore();
-    store.dispatch('place/getPlaces');
+
+    onMounted(() => store.dispatch('place/getPlaces'));
+
     return {
       places: computed(() => store.state.place.places),
     }
