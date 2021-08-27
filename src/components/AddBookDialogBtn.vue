@@ -58,30 +58,21 @@ export default {
   components: {TagsInput, PlacesInput},
   setup() {
     const initialForm = {
-      title: '',
-      authors: [],
-      topics: [],
-      shelfNumber: 1,
-      description: ''
+      title: '', authors: [], topics: [],
+      shelfNumber: 1, description: ''
     }
-
     const form = reactive({...initialForm});
     const showDialog = ref(false);
     const authorInput = ref('');
     const topicInput = ref('');
     const place = ref(null);
-
     const store = useStore();
     const $q = useQuasar();
 
     if (!store.state["place/places"]) store.dispatch('place/getPlaces');
 
     const places = computed(() => store.state.place.places.map((p, index) => (
-      {
-        label: `${p.type} #${p.id}`,
-        value: index,
-        info: p.info,
-      }
+      { label: `${p.type} #${p.id}`, value: index, info: p.info }
     )));
 
     const isBookcase = computed(() => {
@@ -94,8 +85,8 @@ export default {
     });
 
     const maxShelves = computed(() => {
-      if (place.value) return store.state.place.places[place.value.value].shelves_count;
-
+      if (place.value)
+        return store.state.place.places[place.value.value].shelves_count;
       return 0;
     });
 
@@ -121,11 +112,9 @@ export default {
       authorInput,
       topicInput,
       place,
-
       places,
       isBookcase,
       maxShelves,
-
       addAuthor: (val) => form.authors.push(val),
       removeAuthor: (index) => form.authors.splice(index, 1),
       addTopic: (val) => form.topics.push(val),
